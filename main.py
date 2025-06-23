@@ -1,12 +1,10 @@
-from tkinter import *
-import tkintermapview
+var_choice = IntVar()
+Radiobutton(frame_list, text="Kopalnie", variable=var_choice, value=1, command=lambda: update_list(mines)).grid(row=0, column=0)
+Radiobutton(frame_list, text="Pracownicy", variable=var_choice, value=2, command=lambda: update_list(employees)).grid(row=0, column=1)
+Radiobutton(frame_list, text="Klienci", variable=var_choice, value=3, command=lambda: update_list(clients)).grid(row=0, column=2)
 
-mines = []
-employees = []
-clients = []
-
-class Entity:
-    def __init__(self, name, location, description):
-        self.name = name
-        self.location = location
-        self.description = description
+listbox = Listbox(frame_list, width=60, height=15)
+listbox.grid(row=1, column=0, columnspan=3)
+Button(frame_list, text="Pokaż", command=show_details).grid(row=2, column=0)
+Button(frame_list, text="Usuń", command=remove_entity).grid(row=2, column=1)
+Button(frame_list, text="Edytuj", command=edit_entity).grid(row=2, column=2)
